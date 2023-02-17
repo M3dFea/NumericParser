@@ -25,6 +25,8 @@ double applyOp(double a, double b, char op) {
     return 0;
 }
 
+
+
 double evaluate(string expression)
 {
     stack<double> values;
@@ -44,8 +46,6 @@ double evaluate(string expression)
             expression[i] == 'E') {
 
             double val = 0;
-            double frac = 0;
-            int digits = 0;
             char Num[] = "          ";
             int iNC = 0;
             while (i < expression.length() && (isdigit(expression[i]) ||
@@ -95,6 +95,10 @@ double evaluate(string expression)
             ops.push(expression[i]);
         }
         else {
+            if (values.empty())
+            {
+                return(0); //error
+            }
             while (!ops.empty() && precedence(ops.top()) >= precedence(expression[i])) {
                 double val2 = values.top();
                 values.pop();
@@ -107,7 +111,10 @@ double evaluate(string expression)
             ops.push(expression[i]);
         }
     }
-
+    if (values.empty())
+    {
+        return(0);   //error
+    }
     while (!ops.empty()) {
         double val2 = values.top();
         values.pop();
