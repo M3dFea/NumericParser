@@ -1,8 +1,7 @@
 //Most of this code was written by ChatGPT
-//It did a good lob but didn't quire works
-//I think I have corrected it but user beware!!
+//It did a good lob but didn't quite work
+//I think I have corrected it - but user beware!!
 
-#include <iostream>
 #include <iostream>
 #include <stack>
 #include <string>
