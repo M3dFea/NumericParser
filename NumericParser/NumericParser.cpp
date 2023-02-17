@@ -1,4 +1,6 @@
-
+//Most of this code was written by ChatGPT
+//It didn't a good lob but didn't quire works
+//I think I have corrected it but user beware!!
 
 #include <iostream>
 #include <iostream>
