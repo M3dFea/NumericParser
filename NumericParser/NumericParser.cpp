@@ -64,6 +64,8 @@ double evaluate(string expression) {
             {
                 if ((expression[i] == 'e' || expression[i] == 'E'))
                     bExp = true;
+                else
+                    bExp = false;
                 Num[iNC] = expression[i];
                 iNC++;
                 i++;
