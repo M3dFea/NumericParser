@@ -93,13 +93,11 @@ double evaluate(string expression)
         }
         else if (isdigit(expression[i]) ||
                  expression[i] == '.' ||
-                 isPartofNumber(expression, i) ||
-                 expression[i] == 'e' ||
-                 expression[i] == 'E') 
+                 isPartofNumber(expression, i)) 
         {
 
             double val = 0;
-            char Num[] = "          ";
+            char Num[] = "                    ";
             int iNC = 0;
             while (i < expression.length() && (isdigit(expression[i]) ||
                 expression[i] == '.' ||
