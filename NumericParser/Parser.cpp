@@ -46,7 +46,6 @@ bool isOp2(char op)
     case '/': return (true);
     case '^': return (true);
     case '(': return (true);
-    case ')': return (true);
     case 'e': return (true);
     case 'E': return (true);
     }
