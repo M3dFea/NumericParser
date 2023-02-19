@@ -92,18 +92,19 @@ double evaluate(string expression)
             ops.push(expression[i]);
         }
         else if (isdigit(expression[i]) ||
-                 expression[i] == '.' ||
-                 isPartofNumber(expression, i)) 
+                 isPartofNumber(expression, i) ||
+                 expression[i] == '.') 
         {
 
             double val = 0;
             char Num[] = "                    ";
             int iNC = 0;
-            while (i < expression.length() && (isdigit(expression[i]) ||
-                expression[i] == '.' ||
-                isPartofNumber(expression, i) ||
-                expression[i] == 'e' ||
-                expression[i] == 'E'))
+            while (i < expression.length() && 
+                  (isdigit(expression[i]) ||
+                   isPartofNumber(expression, i) ||
+                   expression[i] == '.' ||
+                   expression[i] == 'e' ||
+                   expression[i] == 'E'))
 
             {
                 Num[iNC] = expression[i];
@@ -113,7 +114,6 @@ double evaluate(string expression)
             val = atof(Num);
             values.push(val);
             cout << Num << endl;
-            bExp = false;
             i--;
         }
         else if (expression[i] == ')') {
@@ -128,20 +128,6 @@ double evaluate(string expression)
             }
             ops.pop();
         }
-        //else if (expression[i] == '^') {
-        //    while (!ops.empty() && precedence(ops.top()) >= precedence(expression[i])) {
-        //        if (values.size() < 2)
-        //            return(0); //error
-        //        double val2 = values.top();
-        //        values.pop();
-        //        double val1 = values.top();
-        //        values.pop();
-        //        char op = ops.top();
-        //        ops.pop();
-        //        values.push(applyOp(val1, val2, op));
-        //    }
-        //    ops.push(expression[i]);
-        //}
         else {
             if (values.empty())
             {
