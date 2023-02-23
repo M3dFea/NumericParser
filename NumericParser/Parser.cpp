@@ -81,9 +81,7 @@ double evaluate(string expression)
 {
     stack<double> values;
     stack<char> ops;
-    bool bExp = false;
     for (int i = 0; i < expression.length(); i++) {
-        bExp = false;
         if (expression[i] == ' ') {
             continue;
         }
