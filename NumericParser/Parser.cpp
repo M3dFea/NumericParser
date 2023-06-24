@@ -58,7 +58,7 @@ bool isOp2(char op)
 //                          *(-1.2.....
 //                          ^(-1.2+2....
 // 
-bool isPartofNumber(string expression, int iC )
+bool isPartofNumber(string expression, int iC)
 {
     int i;
     bool brc = false;
@@ -68,9 +68,9 @@ bool isPartofNumber(string expression, int iC )
         {
             brc = true;
         }
-        else if (iC>0)
+        else if (iC > 0)
         {
-            if (isOp2(expression[iC-1])==true)
+            if (isOp2(expression[iC - 1]) == true)
                 brc = true;
         }
     }
@@ -89,19 +89,19 @@ double evaluate(string expression)
             ops.push(expression[i]);
         }
         else if (isdigit(expression[i]) ||
-                 isPartofNumber(expression, i) ||
-                 expression[i] == '.') 
+            isPartofNumber(expression, i) ||
+            expression[i] == '.')
         {
 
             double val = 0;
             char Num[] = "                    ";
             int iNC = 0;
-            while (i < expression.length() && 
-                  (isdigit(expression[i]) ||
-                   isPartofNumber(expression, i) ||
-                   expression[i] == '.' ||
-                   expression[i] == 'e' ||
-                   expression[i] == 'E'))
+            while (i < expression.length() &&
+                (isdigit(expression[i]) ||
+                    isPartofNumber(expression, i) ||
+                    expression[i] == '.' ||
+                    expression[i] == 'e' ||
+                    expression[i] == 'E'))
 
             {
                 Num[iNC] = expression[i];
@@ -110,7 +110,7 @@ double evaluate(string expression)
             }
             val = atof(Num);
             values.push(val);
-            cout << Num << endl;
+            //cout << Num << endl;
             i--;
         }
         else if (expression[i] == ')') {
@@ -142,7 +142,7 @@ double evaluate(string expression)
                 values.push(applyOp(val1, val2, op));
             }
             if (isOp(expression[i]))
-              ops.push(expression[i]);
+                ops.push(expression[i]);
         }
     }
     if (values.empty())
@@ -150,6 +150,8 @@ double evaluate(string expression)
         return(0);   //error
     }
     while (!ops.empty()) {
+        if (values.size() < 2)
+            return(0); //error
         double val2 = values.top();
         values.pop();
         double val1 = values.top();
